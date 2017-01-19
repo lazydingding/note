@@ -8,8 +8,22 @@
 ```
 df.drop(['col1','col2'], axis=1, inplace=True)
 ```
-####
-
+#### Group by & Sum
+```
+df = df.groupby(['col1','col2']).sum()
+```
 ## Datetime
+#### Create a single datetime
+```
+from datetime import datetime
+datetime.strptime("16:00:00", "%H:%M:%S")
+```
+#### Time for + / - / compare
+```
+from datetime import timedelta
+timedelta(minutes=60)
+```
 #### Column to datetime format
-
+```
+df['time_datetime'] =  pd.to_datetime(df['time_string'], format='%H:%M:%S')
+```
