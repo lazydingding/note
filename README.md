@@ -4,10 +4,14 @@
 # Luping's Notes @ HKU
 
 ## Pandas
+
+### Drop
 #### Drop columns
 ```
 df.drop(['col1','col2','Unnamed: 0'], axis=1, inplace=True)
 ```
+
+### Group By
 #### Group by & Sum
 ```
 df = df.groupby(['col1','col2']).sum()
@@ -16,10 +20,20 @@ df = df.groupby(['col1','col2']).sum()
 ```
 df = df.sort_values(['col1','col2']).groupby('col1')['col1','col2'].first()
 ```
+
+### Merge
+#### Inner merge
+```
+df = pd.merge(df1, df2, how='inner')
+```
+
+### Write
 #### Write to .csv without index
 ```
 df.to_csv('o.csv', index=False, encoding='utf-8')
 ```
+
+
 
 ## Datetime
 #### Create a single datetime
