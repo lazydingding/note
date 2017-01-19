@@ -12,6 +12,10 @@ df.drop(['col1','col2','Unnamed: 0'], axis=1, inplace=True)
 ```
 df = df.groupby(['col1','col2']).sum()
 ```
+####  Sort, Group by and Extract the first row of the specific columns
+```
+df = df.sort_values(['col1','col2']).groupby('col1')['col1','col2'].first()
+```
 #### Write to .csv without index
 ```
 df.to_csv('o.csv', index=False, encoding='utf-8')
