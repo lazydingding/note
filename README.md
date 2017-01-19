@@ -6,12 +6,17 @@
 ## Pandas
 #### Drop columns
 ```
-df.drop(['col1','col2'], axis=1, inplace=True)
+df.drop(['col1','col2','Unnamed: 0'], axis=1, inplace=True)
 ```
 #### Group by & Sum
 ```
 df = df.groupby(['col1','col2']).sum()
 ```
+#### Write to .csv without index
+```
+df.to_csv('o.csv', index=False, encoding='utf-8')
+```
+
 ## Datetime
 #### Create a single datetime
 ```
