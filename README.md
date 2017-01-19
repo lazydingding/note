@@ -5,5 +5,5 @@
 
 ## Pandas
 
-### Drop columns
+#### Drop columns
 df.drop(['col1','col2'], axis=1, inplace=True)
