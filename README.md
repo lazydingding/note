@@ -5,14 +5,68 @@
 
 ## Pandas
 
-### Drop
-#### Drop columns
+### Read files
+#### Read stata
 ```
-df.drop(['col1','col2','Unnamed: 0'], axis=1, inplace=True)
+df = pd.read_stata()
+```
+
+### Filter (Column)
+#### Print columns out
+```
+print (list(df.columns))
+```
+#### Rename columns
+```
+df = df.rename(columns=lambda x: 'new_' + x)
+```
+#### Zfill
+```
+df['cusip'] = df['cusip'].str.zfill(9)
+```
+#### Column mean
+```
+df[df['col1'] == 'F'].col2.mean()
+```
+#### Column mean (multi conditions)
+```
+df[df['col1'].str.contains('str1') | df['col1'].str.contains('str2') | df['col1'].str.contains('str3')].col2.mean())
+```
+
+### Filter (Row)
+#### Keep the rows that meet the condition
+```
+df = df[df['col1'] == i]
+```
+#### Unique rows
+```
+df['col1'].unique()
+```
+
+### Merge & Concat & Append
+#### Concat (ingore index)
+```
+df = pandas.concat([df1, df2], ignore_index=True)
+```
+#### Append
+```
+df = df.append(df1, ignore_index=True)
+```
+#### Inner merge
+```
+df = pd.merge(df1, df2, how='inner')
+```
+#### Reset Index
+```
+df = df.reset_index(drop=True)
 ```
 
 ### Group By
-#### Group by & Sum
+#### Group by & Sum (A column)
+```
+df['col1'] = df.groupby(['col2','col3'])['col1'].transform('sum')
+```
+#### Group by & Sum (Keep all of the DataFrame)
 ```
 df = df.groupby(['col1','col2']).sum()
 ```
@@ -21,10 +75,18 @@ df = df.groupby(['col1','col2']).sum()
 df = df.sort_values(['col1','col2']).groupby('col1')['col1','col2'].first()
 ```
 
-### Merge
-#### Inner merge
+### Drop
+#### Drop duplicates
 ```
-df = pd.merge(df1, df2, how='inner')
+df = df.drop_duplicates()
+```
+#### Keep duplicates
+```
+df = pd.concat(g for _, g in df.groupby(['col1','col2']) if len(g) > 1)
+```
+#### Drop columns
+```
+df.drop(['col1','col2','Unnamed: 0'], axis=1, inplace=True)
 ```
 
 ### Write
