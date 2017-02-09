@@ -32,6 +32,10 @@ df[df['col1'] == 'F'].col2.mean()
 ```
 df[df['col1'].str.contains('str1') | df['col1'].str.contains('str2') | df['col1'].str.contains('str3')].col2.mean())
 ```
+#### Split Column
+```
+df['col1'] = df['col1'].str.split(':').str.get(1)
+```
 
 ### Filter (Row)
 #### Keep the rows that meet the condition
