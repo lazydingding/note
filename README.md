@@ -74,7 +74,11 @@ df['col1'] = df.groupby(['col2','col3'])['col1'].transform('sum')
 ```
 df = df.groupby(['col1','col2']).sum()
 ```
-####  Sort, Group by and Extract the first row of the specific columns
+#### The group-by key disappeared after grouping by
+````
+df = df.groupby(['col1','col2']).sum().reset_index()
+````
+#### Sort, Group by and Extract the first row of the specific columns
 ```
 df = df.sort_values(['col1','col2']).groupby('col1')['col1','col2'].first()
 ```
