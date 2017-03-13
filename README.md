@@ -120,3 +120,8 @@ timedelta(minutes=60)
 ```
 df['time_datetime'] =  pd.to_datetime(df['time_string'], format='%H:%M:%S')
 ```
+
+## 赋值
+```
+df.loc[index, 'col1'] = 1 much better than df['col1'][index] = 1
+```
