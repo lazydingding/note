@@ -35,6 +35,7 @@ df[df['col1'].str.contains('str1') | df['col1'].str.contains('str2') | df['col1'
 #### Split Column
 ```
 df['col1'] = df['col1'].str.split(':').str.get(1)
+df['col1'] = df['col1'].astype('str').str[:4]
 ```
 
 ### Filter (Row)
