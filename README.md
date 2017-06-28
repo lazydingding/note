@@ -120,6 +120,7 @@ timedelta(minutes=60)
 #### Column to datetime format
 ```
 df['time_datetime'] =  pd.to_datetime(df['time_string'], format='%H:%M:%S')
+df['time_datetime'] =  pd.to_datetime(df['time_string'], format='%d-%b-%y') e.g.12-Sep-87
 ```
 
 ## 赋值
