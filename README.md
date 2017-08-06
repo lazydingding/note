@@ -75,6 +75,11 @@ df['col1'] = df.groupby(['col2','col3'])['col1'].transform('sum')
 ```
 df = df.groupby(['col1','col2']).sum()
 ```
+#### Group by & Max
+```
+df = df.groupby(['col1','col2']).max()
+df = df.groupby(['col1','col2']).transform('max')
+```
 #### The group-by key disappeared after grouping by
 ````
 df = df.groupby(['col1','col2']).sum().reset_index()
