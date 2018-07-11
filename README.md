@@ -132,3 +132,8 @@ df['time_datetime'] =  pd.to_datetime(df['time_string'], format='%d-%b-%y') e.g.
 ```
 df.loc[index, 'col1'] = 1 much better than df['col1'][index] = 1
 ```
+
+## Excel - count
+```
+=COUNTIFS(D:D,D2,E:E,E2)
+```
